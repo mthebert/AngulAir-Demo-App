@@ -1,3 +1,3 @@
-function ReservationsCtrl($scope){
+function ReservationsCtrl ($scope) {
 	$scope.setActive('reservations');
 }
