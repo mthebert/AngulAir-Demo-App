@@ -1,4 +1,4 @@
-angular.module('airline', ['airlineService'])
+angular.module('airline', ['airlineService', 'airlineFilters'])
 	.config(airlineRouter);
 
 function airlineRouter ($routeProvider) {
@@ -8,3 +8,15 @@ function airlineRouter ($routeProvider) {
 		.when('/flights', { templateUrl: 'partials/flights.html', controller: 'FlightsCtrl'})
 		.when('/reservations', { templateUrl: 'partials/reservations.html', controller: 'ReservationsCtrl'});
 }
+
+angular.module('airlineFilters',[])
+	.filter('originTitle', function(){
+		return function(input){
+			return input.origin + ' - ' + input.originFullName;
+		};
+	})
+	.filter('destinationTitle', function(){
+		return function(input){
+			return input.destination + ' - ' + input.destinationFullName;
+		};
+	});
